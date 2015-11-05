@@ -1,0 +1,15 @@
+javac: file not found: .\C:\java\src\program-test-242-1\src\src-output\student6\ArraySearcher.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+javac: file not found: .\C:\java\src\program-test-242-1\src\src-output\student6\Factorial.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+javac: file not found: .\C:\java\src\program-test-242-1\src\src-output\student6\TestProgram.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+Error: Could not find or load main class Factorial
+Error: Could not find or load main class Factorial
+Error: Could not find or load main class ArraySearcher
+Error: Could not find or load main class ArraySearcher
+Error: Main method not found in class TestProgram, please define the main method as:
+   public static void main(String[] args)

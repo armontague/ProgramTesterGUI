@@ -1,0 +1,17 @@
+javac: file not found: .\C:\java\src\program-test-242-1\src\src-output\student2\242-1-test1-student2.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+javac: file not found: .\C:\java\src\program-test-242-1\src\src-output\student2\ArraySearcher.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+javac: file not found: .\C:\java\src\program-test-242-1\src\src-output\student2\Factorial.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+javac: file not found: .\C:\java\src\program-test-242-1\src\src-output\student2\TestProgram.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+Error: Could not find or load main class Factorial
+Error: Could not find or load main class Factorial
+Error: Could not find or load main class ArraySearcher
+Error: Could not find or load main class ArraySearcher
+Error: Could not find or load main class TestProgram
