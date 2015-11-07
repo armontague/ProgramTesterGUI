@@ -21,6 +21,7 @@ public class MainPanel extends JPanel{
     JTextField jdkField, singleField, batchField, inputsField, argsField;;
 	BatchTester batchTest = new BatchTester();
 	String singleStudentName;
+	ConfigurationItems configItems = new ConfigurationItems();
     
     public MainPanel() {
         
@@ -175,7 +176,7 @@ public class MainPanel extends JPanel{
             public void actionPerformed(ActionEvent ae) {
 				String argText = argsField.getText();
 				argWriter(argText);
-				setTestInputs();
+				configItems.setTestInputs(inputsField.getText());
 				OutputFrame singleOutput = new OutputFrame(false);
 				SingleTester singleTest = new SingleTester();
 				singleTest.main(null);
@@ -186,7 +187,7 @@ public class MainPanel extends JPanel{
             public void actionPerformed(ActionEvent ae) {
 				String argText = argsField.getText();
 				argWriter(argText);
-				setTestInputs();
+				configItems.setTestInputs(inputsField.getText());
                 OutputFrame batchOutput = new OutputFrame(true);
 				batchTest.main(null);
             }
@@ -281,25 +282,4 @@ public class MainPanel extends JPanel{
 			
 		}
     }
-	
-	private void setTestInputs() {
-		String inputs = inputsField.getText();
-		inputs = inputs.replace(" ", "");
-		if(inputs != "") {
-			try{
-				List<String> inputsList = Arrays.asList(inputs.split(","));
-				File inputsFile = 
-					new File("C:\\java\\src\\program-test-242-1\\src\\TestInput.txt");
-				PrintStream fileStream = new PrintStream(inputsFile);
-				//FileWriter writer = new FileWriter(inputsFile, false);
-				for(Iterator<String> i = inputsList.iterator(); i.hasNext(); ) {
-					String input = i.next();
-					fileStream.println(input);
-				}
-				fileStream.close();
-			} catch(IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
 }
