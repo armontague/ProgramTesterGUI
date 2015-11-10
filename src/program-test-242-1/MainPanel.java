@@ -227,59 +227,61 @@ public class MainPanel extends JPanel{
 		String arguments = argText;
         String[] separatedString = new String[100];
         
-		try{
-		
-		File argFile;
-		PrintStream writer;
-		argFile = new File("src\\args.txt");
-		writer = new PrintStream(argFile);
-		
-		//separationStart is the beginning of the argument substring entered by the user
-        int separationStart = 0;
-		//separationEnd is the end of the argument substring entered by the user
-        int[] separationEnd = new int[100];
-		//argNum finds how many arguments separated by commas that the user entered
-        int argNum = 0;
-		//commaCheck keeps track of how many commas are in the string entered by the user
-		//this way the program knows when to exit the do while loop
-        int commaCheck;
-        
-		/*This do while loop finds the commas that separate each argument 
-		  so the arguments can be parsed out in the following for loop
-		*/
-        do{
-            separationEnd[argNum] = arguments.indexOf(", ", separationStart);
-            
-            separationStart = separationEnd[argNum] + 1;
-            
-            argNum++;
-            commaCheck = argNum - 1;
-        }while(separationEnd[commaCheck] != -1);
-        
-		/*This for loop goes through the string of arguments that the user entered
-		  and separates them at each comma using the end points found in the above
-		  do while loop
-		*/
-        for(int i = 0; i < argNum; i++){
-			/*When the value of separationEnd is -1 it thinks it is at the end of
-			  the entered string when in fact there is still more left. Setting 
-			  separationEnd to the length of the string when it is -1 grabs the rest
-			  of the string it wouldn't have found before.
-			*/
-			if(separationEnd[i] == -1){
-				separationEnd[i] = arguments.length();
-			}
-		
-            separatedString[i] = arguments.substring(separationStart, separationEnd[i]);
-            writer.println(separatedString[i]);
-			//This statement puts separationStarts location just after the comma and space
-			//in the argument entered by the user
-            separationStart = separationEnd[i] + 2;
-        }
-		
-        writer.close();
-		}catch(IOException e){
+		if(!argText.equals("")) {
+			try{
 			
+				File argFile;
+				PrintStream writer;
+				argFile = new File("src\\args.txt");
+				writer = new PrintStream(argFile);
+				
+				//separationStart is the beginning of the argument substring entered by the user
+				int separationStart = 0;
+				//separationEnd is the end of the argument substring entered by the user
+				int[] separationEnd = new int[100];
+				//argNum finds how many arguments separated by commas that the user entered
+				int argNum = 0;
+				//commaCheck keeps track of how many commas are in the string entered by the user
+				//this way the program knows when to exit the do while loop
+				int commaCheck;
+				
+				/*This do while loop finds the commas that separate each argument 
+				  so the arguments can be parsed out in the following for loop
+				*/
+				do{
+					separationEnd[argNum] = arguments.indexOf(", ", separationStart);
+					
+					separationStart = separationEnd[argNum] + 1;
+					
+					argNum++;
+					commaCheck = argNum - 1;
+				}while(separationEnd[commaCheck] != -1);
+				
+				/*This for loop goes through the string of arguments that the user entered
+				  and separates them at each comma using the end points found in the above
+				  do while loop
+				*/
+				for(int i = 0; i < argNum; i++){
+					/*When the value of separationEnd is -1 it thinks it is at the end of
+					  the entered string when in fact there is still more left. Setting 
+					  separationEnd to the length of the string when it is -1 grabs the rest
+					  of the string it wouldn't have found before.
+					*/
+					if(separationEnd[i] == -1){
+						separationEnd[i] = arguments.length();
+					}
+				
+					separatedString[i] = arguments.substring(separationStart, separationEnd[i]);
+					writer.println(separatedString[i]);
+					//This statement puts separationStarts location just after the comma and space
+					//in the argument entered by the user
+					separationStart = separationEnd[i] + 2;
+				}
+				
+				writer.close();
+			}catch(IOException e){
+				
+			}
 		}
     }
 }
