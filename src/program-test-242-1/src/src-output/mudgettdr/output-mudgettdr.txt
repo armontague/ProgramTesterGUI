@@ -1,3 +1,12 @@
+javac: file not found: .\C:\java\src\program-test-242-1\src\src-output\mudgettdr\ArraySearcher.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+javac: file not found: .\C:\java\src\program-test-242-1\src\src-output\mudgettdr\Factorial.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+javac: file not found: .\C:\java\src\program-test-242-1\src\src-output\mudgettdr\TestProgram.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
 5! = 120
 10! = 3628800
 nSearch = 4
