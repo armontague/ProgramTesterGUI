@@ -7,10 +7,8 @@ use -help for a list of possible options
 javac: file not found: .\C:\java\src\program-test-242-1\src\src-output\student3\TestProgram.java
 Usage: javac <options> <source files>
 use -help for a list of possible options
-n = 5
-120
-n = 10
-3628800
+Error: Could not find or load main class Factorial
+Error: Could not find or load main class Factorial
 Error: Could not find or load main class ArraySearcher
 Error: Could not find or load main class ArraySearcher
 Error: Could not find or load main class TestProgram
