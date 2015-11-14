@@ -19,8 +19,9 @@ public class MainPanel extends JPanel{
     
     JButton singleRunBtn, batchRunBtn, jdkChooserBtn, singleChooserBtn, batchChooserBtn;
     JTextField jdkField, singleField, batchField, inputsField, argsField;;
+	String singleStudentName, batchDirectory;
+	String[] batchStudents;
 	BatchTester batchTest = new BatchTester();
-	String singleStudentName;
 	ConfigurationItems configItems = new ConfigurationItems();
     
     public MainPanel() {
@@ -122,9 +123,10 @@ public class MainPanel extends JPanel{
                 if (returnValue == JFileChooser.APPROVE_OPTION) {
                     studentFoldersDir = fileChooser.getSelectedFile();
                     batchField.setText(studentFoldersDir.getName());
-					batchTest.sourcePath = studentFoldersDir.getAbsolutePath();
+					batchDirectory = studentFoldersDir.getAbsolutePath();
+					batchTest.sourcePath = batchDirectory;
 					
-					String[] folders = studentFoldersDir.list();
+					batchStudents = studentFoldersDir.list();
 					int n = 0;
 					File configFile = new File("configBatch.txt");
 					FileWriter writer = null;
@@ -136,18 +138,15 @@ public class MainPanel extends JPanel{
 						Logger.getLogger(MainPanel.class.getName()).log(Level.SEVERE, null, ex);
 					}
 					String text = "";
-					for(String folder : folders) {
+					for(String student : batchStudents) {
 						String studentNumber = "";
 						if(n == 0) {
 							studentNumber = "0000000";
+							text = n + " " + student + " " + studentNumber;
 						}
 						else {
 							studentNumber = String.valueOf(n*1111111);
-						}
-						if(n == 0) {
-							text = n + " " + folder + " " + studentNumber;
-						} else {
-							text = text + "\n" + n + " " + folder + " " + studentNumber;
+							text = text + "\n" + n + " " + student + " " + studentNumber;
 						}
 						n++;
 					}
@@ -188,7 +187,8 @@ public class MainPanel extends JPanel{
 				String argText = argsField.getText();
 				argWriter(argText);
 				configItems.setTestInputs(inputsField.getText());
-                OutputFrame batchOutput = new OutputFrame(true);
+                OutputFrame batchFrame = new OutputFrame(true);
+				batchFrame.batchPanel.displayStudentOutputs(batchDirectory, batchStudents);
 				batchTest.main(null);
             }
         });
