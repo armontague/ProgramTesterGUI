@@ -14,6 +14,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
+import javax.swing.text.BadLocationException;
 
 public class MainPanel extends JPanel{
     
@@ -188,7 +189,11 @@ public class MainPanel extends JPanel{
 				argWriter(argText);
 				configItems.setTestInputs(inputsField.getText());
                 OutputFrame batchFrame = new OutputFrame(true);
-				batchFrame.batchPanel.displayStudentOutputs(batchDirectory, batchStudents);
+				try {
+					batchFrame.batchPanel.displayStudentOutputs(batchDirectory, batchStudents);
+				} catch (BadLocationException ex) {
+					Logger.getLogger(MainPanel.class.getName()).log(Level.SEVERE, null, ex);
+				}
 				batchTest.main(null);
             }
         });
