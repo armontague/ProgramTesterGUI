@@ -4,6 +4,8 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class OutputFrame extends JFrame {
     
+	BatchPanel batchPanel = new BatchPanel();
+	
 	public OutputFrame(){
     }
 	
@@ -14,7 +16,6 @@ public class OutputFrame extends JFrame {
         setSize(700,700);
         
 		if(batchRun == true) {
-			BatchPanel batchPanel = new BatchPanel();
 			getContentPane().add(batchPanel, "Center");
 		} else if(batchRun == false) {
 			SinglePanel singlePanel = new SinglePanel();
