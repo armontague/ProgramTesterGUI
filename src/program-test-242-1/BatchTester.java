@@ -16,7 +16,7 @@ public class BatchTester
     
     String path = "C:/java/jdk1.7.0_71/bin";
 //  set fixed paths and file names:
-    //String sourcePath = "./src/src-output";
+    String sourcePath = "./src/src-output";
     String testDataPath = "./src";
     String argsFileName = testDataPath + "/args.txt";
     String testInputFileName = testDataPath + "/TestInput.txt";
@@ -54,12 +54,10 @@ public class BatchTester
         String studentPath = sourcePath + "/" + studentName;
         String inputFileStub = studentPath + "/input";
         String outputFileName = studentPath + "/output-" + studentName + ".txt";
-/*      make sure set correctly
-        System.out.println("classPath: " + classPath);
-        System.out.println("studentPath: " + studentPath);
+		System.out.println("classPath: " + classPath);
+		System.out.println("studentPath: " + studentPath);
         System.out.println("inputFileStub: " + inputFileStub);
         System.out.println("outputFileName: " + outputFileName);
-*/
       
         System.out.println("run #: " + runNumber + " ; studentNumber: " + studentNumber + 
         "; Name: " + studentName + "; Handle: " + studentHandle);

@@ -53,12 +53,10 @@ public class SingleTester
       String studentPath = sourcePath + "/" + studentName;
       String inputFileStub = studentPath + "/input";
       String outputFileName = studentPath + "/output-" + studentName + ".txt";
-/*    make sure set correctly
-      System.out.println("classPath: " + classPath);
-      System.out.println("studentPath: " + studentPath);
+	  System.out.println("classPath: " + classPath);
+	  System.out.println("studentPath: " + studentPath);
       System.out.println("inputFileStub: " + inputFileStub);
       System.out.println("outputFileName: " + outputFileName);
-*/
       
       System.out.println("run #: " + runNumber + " ; studentNumber: " + studentNumber + 
       "; Name: " + studentName + "; Handle: " + studentHandle);
