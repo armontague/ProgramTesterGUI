@@ -177,9 +177,9 @@ public class MainPanel extends JPanel{
 				String argText = argsField.getText();
 				argWriter(argText);
 				configItems.setTestInputs(inputsField.getText());
-				OutputFrame singleOutput = new OutputFrame(false);
 				SingleTester singleTest = new SingleTester();
 				singleTest.main(null);
+				OutputFrame singleOutput = new OutputFrame(false);
             }
         });
         
@@ -188,13 +188,13 @@ public class MainPanel extends JPanel{
 				String argText = argsField.getText();
 				argWriter(argText);
 				configItems.setTestInputs(inputsField.getText());
+				batchTest.main(null);
                 OutputFrame batchFrame = new OutputFrame(true);
 				try {
 					batchFrame.batchPanel.displayStudentOutputs(batchDirectory, batchStudents);
 				} catch (BadLocationException ex) {
 					Logger.getLogger(MainPanel.class.getName()).log(Level.SEVERE, null, ex);
 				}
-				batchTest.main(null);
             }
         });
         
